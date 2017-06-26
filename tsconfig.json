@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        // .. commonjs module default
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": false,
+
+        // ... other options omitted
+        "allowSyntheticDefaultImports": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "es5",
+            "es2015.promise"
+        ]
+    },
+
+    "include": [
+        "resources/assets/js/**/*"
+    ]
+}
