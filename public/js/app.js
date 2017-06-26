@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -380,7 +380,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(25);
+var normalizeHeaderName = __webpack_require__(26);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -471,7 +471,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)))
 
 /***/ }),
 /* 2 */
@@ -481,12 +481,12 @@ module.exports = defaults;
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(17);
-var buildURL = __webpack_require__(20);
-var parseHeaders = __webpack_require__(26);
-var isURLSameOrigin = __webpack_require__(24);
+var settle = __webpack_require__(18);
+var buildURL = __webpack_require__(21);
+var parseHeaders = __webpack_require__(27);
+var isURLSameOrigin = __webpack_require__(25);
 var createError = __webpack_require__(5);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(19);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(20);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -582,7 +582,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(22);
+      var cookies = __webpack_require__(23);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -702,7 +702,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(16);
+var enhanceError = __webpack_require__(17);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -739,6 +739,42 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 /* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = clamp;
+/* unused harmony export forEachValue */
+/* unused harmony export isObject */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function find(list, f) {
+    return list.filter(f)[0];
+}
+
+function clamp(number, lower, upper) {
+    if (number === number) {
+        if (upper !== undefined) {
+            number = number <= upper ? number : upper;
+        }
+        if (lower !== undefined) {
+            number = number >= lower ? number : lower;
+        }
+    }
+    return number;
+}
+
+function forEachValue(obj, fn) {
+    Object.keys(obj).forEach(function (key) {
+        return fn(obj[key], key);
+    });
+}
+
+function isObject(obj) {
+    return obj !== null && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object';
+}
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -765,7 +801,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -775,9 +811,9 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(29);
+__webpack_require__(30);
 
-window.Vue = __webpack_require__(37);
+window.Vue = __webpack_require__(46);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -785,26 +821,26 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(34));
+Vue.component('example', __webpack_require__(41));
 
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -812,7 +848,7 @@ module.exports = __webpack_require__(11);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
-var Axios = __webpack_require__(13);
+var Axios = __webpack_require__(14);
 var defaults = __webpack_require__(1);
 
 /**
@@ -847,14 +883,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(3);
-axios.CancelToken = __webpack_require__(12);
+axios.CancelToken = __webpack_require__(13);
 axios.isCancel = __webpack_require__(4);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(27);
+axios.spread = __webpack_require__(28);
 
 module.exports = axios;
 
@@ -863,7 +899,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -927,7 +963,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -935,10 +971,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(1);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(14);
-var dispatchRequest = __webpack_require__(15);
-var isAbsoluteURL = __webpack_require__(23);
-var combineURLs = __webpack_require__(21);
+var InterceptorManager = __webpack_require__(15);
+var dispatchRequest = __webpack_require__(16);
+var isAbsoluteURL = __webpack_require__(24);
+var combineURLs = __webpack_require__(22);
 
 /**
  * Create a new instance of Axios
@@ -1019,7 +1055,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1078,14 +1114,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(18);
+var transformData = __webpack_require__(19);
 var isCancel = __webpack_require__(4);
 var defaults = __webpack_require__(1);
 
@@ -1164,7 +1200,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1190,7 +1226,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1222,7 +1258,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1249,7 +1285,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1292,7 +1328,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1367,7 +1403,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1386,7 +1422,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1446,7 +1482,7 @@ module.exports = (
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1467,7 +1503,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1542,7 +1578,7 @@ module.exports = (
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1561,7 +1597,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1605,7 +1641,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1639,40 +1675,134 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__classes_Tileset_js__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__classes_Map_js__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__classes_Player_js__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__classes_Camera_js__ = __webpack_require__(31);
+
+
+
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    created: function created() {
+        addEventListener('keyup', this.updatePlayer);
+        addEventListener('keydown', this.updatePlayer);
+    },
+
+    methods: {
+        updatePlayer: function updatePlayer(e) {
+            var mx = void 0,
+                my = void 0;
+            mx = this.map.width * this.tile.width;
+            my = this.map.height * this.tile.height;
+            this.player.update(e, this.delta, mx, my);
+
+            this.x = Math.floor(this.player.x);
+            this.y = Math.floor(this.player.y);
+        },
+        renderMap: function renderMap(ctx, layer) {
+            var _this = this;
+
+            var image;
+            image = new Image();
+            image.onload = function () {
+                _this.map.render(ctx, image, _this.tile, _this.camera, layer);
+            };
+            image.src = this.tile.src;
+        },
+        renderPlayer: function renderPlayer(ctx) {
+            this.player.render(ctx, this.camera);
+        },
+        loop: function loop(timestamp) {
+            var ctx = this.ctx;
+            this.now = timestamp;
+            this.delta = (timestamp - this.then) / 1000.0;
+            this.then = this.now;
+
+            this.camera.update();
+
+            ctx.clearRect(0, 0, this.width, this.height);
+            this.renderMap(ctx, 0);
+            this.renderMap(ctx, 1);
+            this.renderPlayer(ctx);
+
+            //this.map.grid(ctx, this.camera, this.tile)
+
+            requestAnimationFrame(this.loop);
+        },
+        init: function init() {
+            var startX = void 0,
+                startY = void 0;
+            this.tile = new __WEBPACK_IMPORTED_MODULE_0__classes_Tileset_js__["a" /* Tileset */](32, 32, 'http://i.imgur.com/zf8Z7k7.png');
+            this.map = new __WEBPACK_IMPORTED_MODULE_1__classes_Map_js__["a" /* Map */](16, 16);
+            this.camera = new __WEBPACK_IMPORTED_MODULE_3__classes_Camera_js__["a" /* Camera */](this.map, this.tile, this.width, this.height);
+
+            startX = this.map.width * this.tile.width / 2;
+            startY = this.map.height * this.tile.height / 2;
+            this.x = startX;
+            this.y = startY;
+
+            this.player = new __WEBPACK_IMPORTED_MODULE_2__classes_Player_js__["a" /* Player */](startX, startY, 32, 32, 'http://i67.tinypic.com/15gblgz.gif');
+            this.camera.follow(this.player);
+            requestAnimationFrame(this.loop);
+        }
+    },
+    data: function data() {
+        return {
+            // canvas
+            ctx: null,
+            width: 312,
+            height: 312,
+
+            // classes
+            tile: null,
+            map: null,
+            player: null,
+            camera: null,
+
+            // delta
+            now: 0,
+            delta: 0,
+            then: 0,
+
+            x: 160,
+            y: 160
+
+        };
+    },
     mounted: function mounted() {
-        console.log('Component mounted.');
+        // Canvas
+        var canvas = this.$refs.mapCanvas;
+        var context = canvas.getContext('2d');
+        this.ctx = context;
+        this.init();
+    },
+    render: function render(createElement) {
+        return createElement('div', [createElement('canvas', {
+            ref: 'mapCanvas',
+            attrs: {
+                id: 'mapCanvas',
+                width: 312,
+                height: 312
+            }
+        }), createElement('span', this.x), createElement('span', this.y)]);
     }
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(32);
+window._ = __webpack_require__(39);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1681,9 +1811,9 @@ window._ = __webpack_require__(32);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(31);
+  window.$ = window.jQuery = __webpack_require__(38);
 
-  __webpack_require__(30);
+  __webpack_require__(35);
 } catch (e) {}
 
 /**
@@ -1692,7 +1822,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(10);
+window.axios = __webpack_require__(11);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -1726,7 +1856,245 @@ if (token) {
 // });
 
 /***/ }),
-/* 30 */
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util_js__ = __webpack_require__(7);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Camera; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Camera = function () {
+    function Camera(map, tile, width, height) {
+        _classCallCheck(this, Camera);
+
+        this.x = 0;
+        this.y = 0;
+        this.width = width;
+        this.height = height;
+        this.maxX = map.width * tile.width - width;
+        this.maxY = map.height * tile.height - height;
+    }
+
+    _createClass(Camera, [{
+        key: 'follow',
+        value: function follow(player) {
+            this.follow = player;
+            player.viewX = 0;
+            player.viewY = 0;
+        }
+    }, {
+        key: 'update',
+        value: function update() {
+
+            this.follow.viewX = this.width / 2;
+            this.follow.viewY = this.height / 2;
+
+            this.x = this.follow.x - this.width / 2;
+            this.y = this.follow.y - this.height / 2;
+
+            this.x = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* clamp */])(this.x, 0, this.maxX);
+            this.y = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* clamp */])(this.y, 0, this.maxY);
+
+            // left and right (x)
+            if (this.follow.x < this.width / 2 || this.follow.x > this.maxX + this.width / 2) {
+                this.follow.viewX = this.follow.x - this.x;
+            }
+            // top and bottom (y)
+            if (this.follow.y < this.height / 2 || this.follow.y > this.maxY + this.height / 2) {
+                this.follow.viewY = this.follow.y - this.y;
+            }
+        }
+    }]);
+
+    return Camera;
+}();
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Map; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Map = function () {
+    function Map(width, height) {
+        _classCallCheck(this, Map);
+
+        this.width = width;
+        this.height = height;
+        this.layers = this.layers();
+    }
+
+    _createClass(Map, [{
+        key: "render",
+        value: function render(ctx, image, tile, camera, layer) {
+            var w, h, startX, startY, endX, endY, offsetX, offsetY, stile, xpos, ypos, x, y, sx, sy;
+            // start/end & offset x/y
+            startX = Math.floor(camera.x / tile.width);
+            endX = Math.round(startX + camera.width / tile.width);
+            startY = Math.floor(camera.y / tile.height);
+            endY = Math.round(startY + camera.height / tile.height);
+            offsetX = -camera.x + startX * tile.width;
+            offsetY = -camera.y + startY * tile.height;
+
+            // Draw the world - only drawing the tiles
+            // inside the camera viewport instead of
+            // rendering the entire map which gets expensive.
+            for (w = startX; w <= endX; ++w) {
+                for (h = startY; h <= endY; ++h) {
+                    stile = this.layers[layer][w][h];
+
+                    xpos = (w - startX) * tile.width + offsetX;
+                    ypos = (h - startY) * tile.height + offsetY;
+
+                    x = (stile - 1) % 32;
+                    y = Math.floor(stile / 32);
+                    sx = x * 32;
+                    sy = y * 32;
+
+                    if (stile !== 0) {
+                        ctx.drawImage(image, sx, sy, tile.width, tile.height, Math.round(xpos), Math.round(ypos), tile.width, tile.height);
+                    }
+                }
+            }
+        }
+    }, {
+        key: "grid",
+        value: function grid(ctx, camera, tile) {
+            var width = this.width * tile.width,
+                height = this.height * tile.height,
+                x,
+                y,
+                w,
+                h;
+
+            for (w = 0; w < this.width; ++h) {
+                x = -camera.x;
+                y = w * tile.width - camera.y;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            for (h = 0; h < this.height; ++h) {
+                x = h * tile.height - camera.x;
+                y = -camera.y;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+        }
+
+        // @todo - this will be stored in a db
+
+    }, {
+        key: "layers",
+        value: function layers() {
+            return [[[365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365], [365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365, 365]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 98], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 98], [0, 0, 0, 0, 0, 0, 65, 66, 66, 66, 66, 35, 98, 98, 98, 98], [0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 98, 98, 98, 98, 98, 98], [0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 98, 98, 2, 130, 130, 130], [0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 98, 98, 99, 0, 0, 0], [0, 0, 0, 0, 0, 0, 97, 98, 98, 98, 2, 130, 131, 0, 0, 0], [0, 0, 0, 65, 66, 66, 35, 98, 98, 98, 99, 0, 0, 0, 0, 0], [0, 0, 0, 97, 98, 98, 98, 98, 98, 98, 99, 0, 0, 0, 0, 0], [0, 0, 0, 97, 98, 98, 98, 98, 98, 98, 99, 0, 0, 0, 0, 0], [0, 65, 66, 35, 98, 98, 98, 98, 98, 98, 99, 0, 0, 0, 0, 0], [0, 97, 98, 98, 98, 98, 2, 130, 130, 130, 131, 0, 0, 0, 0, 0], [66, 35, 98, 98, 98, 98, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0], [98, 98, 98, 98, 98, 98, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0], [98, 98, 2, 130, 130, 130, 131, 0, 0, 0, 0, 0, 0, 0, 0, 0], [98, 98, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]];
+        }
+    }]);
+
+    return Map;
+}();
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util_js__ = __webpack_require__(7);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Player; });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Player = function () {
+    function Player(x, y, width, height, src) {
+        _classCallCheck(this, Player);
+
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.src = src;
+        this.speed = 256;
+        this.minX = this.x - this.width / 2 < 0 ? this.x : this.width / 2;
+        this.minY = this.y - this.height / 2 < 0 ? this.y : this.height / 2;
+    }
+
+    // Draws the player onto canvas.
+
+
+    _createClass(Player, [{
+        key: 'render',
+        value: function render(ctx, camera) {
+            var x, y, image;
+            x = this.x - this.width / 2 - camera.x;
+            y = this.y - this.height / 2 - camera.y;
+            //x = this.viewX - (this.width / 2)
+            //y = this.viewY - (this.height / 2)
+            image = new Image();
+            image.onload = function () {
+                ctx.drawImage(image, x, y);
+            };
+            image.src = this.src;
+        }
+    }, {
+        key: 'update',
+        value: function update(event, step, mx, my) {
+            var dx = 0,
+                dy = 0;
+            if (event.keyCode === 37) {
+                dx = -1;
+            } else if (event.keyCode === 39) {
+                dx = 1;
+            } else if (event.keyCode === 38) {
+                dy = -1;
+            } else if (event.keyCode === 40) {
+                dy = 1;
+            }
+            this.x += dx * this.speed * step;
+            this.y += dy * this.speed * step;
+
+            // clamp x & y's min/max 
+            this.x = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* clamp */])(this.x, this.minX, mx);
+            this.y = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util_js__["a" /* clamp */])(this.y, this.minY, my);
+        }
+    }]);
+
+    return Player;
+}();
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Tileset; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Tileset = function Tileset(width, height, src) {
+    _classCallCheck(this, Tileset);
+
+    this.width = width;
+    this.height = height;
+    this.src = src;
+};
+
+/***/ }),
+/* 35 */
 /***/ (function(module, exports) {
 
 /*!
@@ -4109,7 +4477,70 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 31 */
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(37)();
+exports.push([module.i, "\ncanvas {\n    z-index: 0;\n}\n\n", ""]);
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14369,7 +14800,7 @@ return jQuery;
 
 
 /***/ }),
-/* 32 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31458,10 +31889,10 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(47)(module)))
 
 /***/ }),
-/* 33 */
+/* 40 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -31651,14 +32082,18 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 34 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(35)(
+
+/* styles */
+__webpack_require__(43)
+
+var Component = __webpack_require__(42)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(29),
   /* template */
-  __webpack_require__(36),
+  null,
   /* scopeId */
   null,
   /* cssModules */
@@ -31666,7 +32101,6 @@ var Component = __webpack_require__(35)(
 )
 Component.options.__file = "/home/vagrant/Code/headjs/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -31685,7 +32119,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 42 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -31742,36 +32176,287 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 36 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-213d197d", module.exports)
-  }
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(44)("d7db2e96", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-213d197d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Example.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-213d197d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Example.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ }),
-/* 37 */
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(45)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41467,10 +42152,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 38 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -41498,11 +42183,11 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 39 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(8);
-module.exports = __webpack_require__(9);
+__webpack_require__(9);
+module.exports = __webpack_require__(10);
 
 
 /***/ })
